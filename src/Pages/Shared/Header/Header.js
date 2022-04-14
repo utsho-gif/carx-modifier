@@ -54,8 +54,8 @@ const Header = () => {
 
               {user ? (
                 <>
-                 <p>{user?.displayName}</p>
-                <button className="btn btn-light ms-2" onClick={handleSignOut}>Sign Out</button>
+                 <p className="text-warning fw-bold mt-2 mx-1">{user?.displayName}</p>
+                <button className="btn btn-light ms-2 h-25 mt-1" onClick={handleSignOut}>Sign Out</button>
                 </>
                 
               ) : (
