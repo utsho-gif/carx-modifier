@@ -5,6 +5,7 @@ import auth from "../../../firebase.init";
 import "./SignUp.css";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Shared/Loading/Loading";
+import PageTitle from "../../Shared/PageTitle/PageTitle";
 
 const SignUp = () => {
   const [agree, setAgree] = useState(false);
@@ -30,6 +31,7 @@ const SignUp = () => {
   }
   return (
     <div className="signup-form">
+      <PageTitle title='Sign Up'></PageTitle>
       <h2 className="text-center my-4 text-secondary">Please Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <input type="text" name="name" id="" placeholder="Your Name" />

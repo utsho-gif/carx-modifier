@@ -7,6 +7,7 @@ import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from "../../Shared/PageTitle/PageTitle";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -56,15 +57,16 @@ const Login = () => {
     const email = emailRef.current.value;
     if(email){
       await sendPasswordResetEmail(email);
-      toast('Sent Email');
+      toast.success('Sent Email');
     }
     else{
-      toast('Enter Your Email First');
+      toast.error('Enter Your Email First');
     }
     
   }
   return (
     <div className="container w-50">
+      <PageTitle title='Sign In'></PageTitle>
       <h2 className="text-secondary text-center my-5">Sign In</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
