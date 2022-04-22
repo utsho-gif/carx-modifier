@@ -10,11 +10,11 @@ const Header = () => {
   const [user] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth)
-    .then(() => {})
-    .catch(error => {
-      error(error.message);
-    })
-  } 
+      .then(() => {})
+      .catch((error) => {
+        error(error.message);
+      });
+  };
   return (
     <>
       <Navbar
@@ -51,13 +51,29 @@ const Header = () => {
               <Nav.Link as={Link} to={"/about"}>
                 About
               </Nav.Link>
+              {user && (
+                <>
+                  <Nav.Link as={Link} to={"/manageservices"}>
+                    Manage
+                  </Nav.Link>
+                  <Nav.Link as={Link} to={"/addservice"}>
+                    Add
+                  </Nav.Link>
+                </>
+              )}
 
               {user ? (
                 <>
-                 <p className="text-warning fw-bold mt-2 mx-1">{user?.displayName}</p>
-                <button className="btn btn-light ms-2 h-25 mt-1" onClick={handleSignOut}>Sign Out</button>
+                  <p className="text-warning fw-bold mt-2 mx-1">
+                    {user?.displayName}
+                  </p>
+                  <button
+                    className="btn btn-light ms-2 h-25 mt-1"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
                 </>
-                
               ) : (
                 <Nav.Link as={Link} to="login">
                   Login
